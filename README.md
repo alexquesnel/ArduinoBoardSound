@@ -1,0 +1,9 @@
+# ArduinoBoardSound
+composed of Matthias Lee Poy-Paxman and Bryan Catudal
+
+Project Proposal
+Primary Objective: Our first objective is to reproduce the existing sound system in the room. We will need the arduino board to, at 
+the push of a button, turn on the audio and play the file "audio on" or turn off the audio and play the file "audio off" 
+
+Secondary Objective: We'd like to be able to increase, decrease or mute the volume straight from the arduino board. 
+Using buttons, we will increase the increase the level of decibels (dB) emitted by the speaker connected to the arduino board. 
