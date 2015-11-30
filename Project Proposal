@@ -10,4 +10,4 @@ Primary Objective: Our first objective is to reproduce the existing sound system
 the push of a button, turn on the audio and play the file "audio on" or turn off the audio and play the file "audio off" 
 
 Secondary Objective: We'd like to be able to increase, decrease or mute the volume straight from the arduino board. 
-Using buttons, we will increase the increase the level of decibels (dB) emitted by the speaker connected to the arduino board. 
+Using buttons, we will increase the level of decibels (dB) emitted by the speaker connected to the arduino board. 
