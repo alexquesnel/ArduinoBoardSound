@@ -1,0 +1,58 @@
+# ArduinoBoardSound
+composed of Matthias Lee Poy-Paxman and Bryan Catudal
+
+/*
+Adafruit Arduino - Lesson 6. Inputs
+*/
+
+
+int ledPin = 5;
+int buttonApin = 9;
+int buttonBpin = 8;
+int speakerPin = 12; 
+int numTones = 9;
+int melody[]= {2637, 2637,0,2637,0,2093,2637,0,3136};
+int cram[] = {1100, 200, 1700, 980, 650, 230, 1900};
+
+byte leds = 0;
+ 
+void setup() 
+{
+  pinMode(ledPin, OUTPUT);
+  pinMode(buttonApin, INPUT_PULLUP);  
+  pinMode(buttonBpin, INPUT_PULLUP);  
+}
+ 
+void loop() 
+{
+  if (digitalRead(buttonApin) == LOW)                                 
+  {
+    digitalWrite(ledPin, HIGH)
+ ; {for (int i = 0; i < numTones; i++)
+  {
+    tone(speakerPin, melody[i]);
+    delay(200);
+  }
+  noTone(speakerPin);
+};  
+    
+    ;
+   
+
+  }
+  if (digitalRead(buttonBpin) == LOW)
+
+ {for (int e = 0; e < numTones; e++)
+  {
+    tone(speakerPin, cram[e]);
+    delay(200);
+  }
+  noTone(speakerPin);
+
+
+   {
+     delay(200);
+    digitalWrite(ledPin, LOW);
+  }
+}
+}
