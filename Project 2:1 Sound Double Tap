@@ -1,0 +1,63 @@
+/*
+Adafruit Arduino - Lesson 6. Inputs
+*/
+
+
+int ledPin = 5;
+int buttonApin = 9;
+int buttonBpin = 8;
+int speakerPin = 2; 
+int numTones = 2;
+int melody[]= {1100, 1900};
+int cram[] = {1318, 1176};
+bool truicci;
+
+byte leds = 0;
+ 
+void setup() 
+{
+  pinMode(ledPin, OUTPUT);
+  pinMode(buttonApin, INPUT_PULLUP);  
+  pinMode(buttonBpin, INPUT_PULLUP);  
+  truicci = false;
+}
+ 
+void loop() 
+{
+  if ((digitalRead(buttonApin) == LOW) &&  (truicci == false))             
+  {for (int i = 0; i < numTones; i++)
+  {
+    tone(speakerPin, melody[i]);
+    delay(200);
+  }
+    noTone(speakerPin);  
+  
+{
+  delay(200);
+  digitalWrite(ledPin, HIGH); 
+  truicci = true;
+  
+  
+};  
+    
+    ;
+   
+
+  }
+  if ((digitalRead(buttonBpin) == LOW) &&  (truicci == true))
+
+ {for (int e = 0; e < numTones; e++)
+  {
+    tone(speakerPin, cram[e]);
+    delay(200);
+  }
+  noTone(speakerPin);
+
+
+   {
+     delay(200);
+    digitalWrite(ledPin, LOW);
+     truicci = false;
+  }
+}
+}
