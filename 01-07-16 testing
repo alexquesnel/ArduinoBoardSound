@@ -1,0 +1,82 @@
+/*
+Adafruit Arduino - Lesson 6. Inputs
+*/
+
+
+int ledPin = 5;
+int buttonON = 9;
+int buttonOFF = 8;
+int buttonMUSIC = 10;
+int speakerPin = 2; 
+int numTones = 2;
+int numTones2 = 5;
+int toneUP[]= {2000, 2200};
+int toneDOWN[] = {2200, 2000};
+int toneMUSIC[] = {1500, 1700, 1900, 2100, 2300};
+bool truicci;
+bool hitalick; 
+
+byte leds = 0;
+ 
+void setup() 
+{
+  pinMode(ledPin, OUTPUT);
+  pinMode(buttonON, INPUT_PULLUP);  
+  pinMode(buttonOFF, INPUT_PULLUP);  
+  pinMode(buttonMUSIC, INPUT_PULLUP); 
+  truicci = false;
+  hitalick = false;
+}
+ 
+void loop() 
+{
+  if ((digitalRead(buttonON) == LOW) &&  (truicci == false))             
+  {for (int i = 0; i < numTones; i++)
+  {
+    tone(speakerPin, toneUP[i]);
+    delay(200);
+  }
+    noTone(speakerPin);  
+  
+{
+  delay(200);
+  digitalWrite(ledPin, HIGH); 
+  truicci = true;
+  
+  
+};  
+    
+    if ((digitalRead(buttonMUSIC) == LOW) && (ledPin == HIGH))
+
+{for (int a = 0; a < numTones2; a++)
+  {
+    tone(speakerPin, toneMUSIC[a]);
+    delay(200);
+  }
+  {
+    delay(200);
+    digitalWrite(ledPin, HIGH);
+}
+   
+}
+  }
+  if ((digitalRead(buttonOFF) == LOW) &&  (truicci == true))
+
+ {for (int e = 0; e < numTones; e++)
+  {
+    tone(speakerPin, toneDOWN[e]);
+    delay(200);
+  }
+  noTone(speakerPin);
+
+
+   {
+     delay(200);
+    digitalWrite(ledPin, LOW);
+     truicci = false;
+  }
+}
+
+
+}
+
