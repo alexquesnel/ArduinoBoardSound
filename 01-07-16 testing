@@ -3,34 +3,34 @@ Adafruit Arduino - Lesson 6. Inputs
 */
 
 
-int ledPin = 5;
-int buttonON = 9;
-int buttonOFF = 8;
-int buttonMUSIC = 10;
-int speakerPin = 2; 
-int numTones = 2;
-int numTones2 = 5;
-int toneUP[]= {2000, 2200};
-int toneDOWN[] = {2200, 2000};
-int toneMUSIC[] = {1500, 1700, 1900, 2100, 2300};
-bool truicci;
-bool hitalick; 
+int ledPin = 5; //the led wire is in pin 5 on the arduino
+int buttonON = 9; //the wire for the on button is connected to pin 9 on the arduino
+int buttonOFF = 8; //the wire for the off button is connected to pin 8 on the arduino
+int buttonMUSIC = 10; //the wire for the button that will begin the music is connected to pin 10 on the arduino
+int speakerPin = 2; //the wire for the buzzer is connected to pin 2
+int numTones = 2; //2 total tones played
+int numTones2 = 5; //5 total tones played 
+int toneUP[]= {2000, 2200}; //tone frequencies
+int toneDOWN[] = {2200, 2000}; //tone frequencies
+int toneMUSIC[] = {1500, 1700, 1900, 2100, 2300}; //tone frequencies
+bool x; //boolean labelled as x
+bool y; //boolean labelled as y
 
-byte leds = 0;
+byte leds = 0; //
  
 void setup() 
 {
-  pinMode(ledPin, OUTPUT);
-  pinMode(buttonON, INPUT_PULLUP);  
-  pinMode(buttonOFF, INPUT_PULLUP);  
-  pinMode(buttonMUSIC, INPUT_PULLUP); 
-  truicci = false;
-  hitalick = false;
+  pinMode(ledPin, OUTPUT); //
+  pinMode(buttonON, INPUT_PULLUP); //
+  pinMode(buttonOFF, INPUT_PULLUP); //
+  pinMode(buttonMUSIC, INPUT_PULLUP); //
+  x = false; //boolean set up as false 
+  y = false;  //boolean set up as false 
 }
  
 void loop() 
 {
-  if ((digitalRead(buttonON) == LOW) &&  (truicci == false))             
+  if ((digitalRead(buttonON) == LOW) &&  (x == false))             
   {for (int i = 0; i < numTones; i++)
   {
     tone(speakerPin, toneUP[i]);
@@ -41,7 +41,7 @@ void loop()
 {
   delay(200);
   digitalWrite(ledPin, HIGH); 
-  truicci = true;
+  x = true;
   
   
 };  
@@ -60,7 +60,7 @@ void loop()
    
 }
   }
-  if ((digitalRead(buttonOFF) == LOW) &&  (truicci == true))
+  if ((digitalRead(buttonOFF) == LOW) &&  (x == true))
 
  {for (int e = 0; e < numTones; e++)
   {
@@ -73,7 +73,7 @@ void loop()
    {
      delay(200);
     digitalWrite(ledPin, LOW);
-     truicci = false;
+     x = false;
   }
 }
 
