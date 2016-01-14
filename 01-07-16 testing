@@ -30,10 +30,10 @@ void setup()
  
 void loop() 
 {
-  if ((digitalRead(buttonON) == LOW) &&  (x == false))             
-  {for (int i = 0; i < numTones; i++)
+  if ((digitalRead(buttonON) == LOW) &&  (x == false)) // if the button is off on pin number 9         
+  {for (int i = 0; i < numTones; i++) // plays tones 1 through 2: plays 1 and adds a value to play 2
   {
-    tone(speakerPin, toneUP[i]);
+    tone(speakerPin, toneUP[i]); // 
     delay(200);
   }
     noTone(speakerPin);  
