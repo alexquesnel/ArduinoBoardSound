@@ -1,0 +1,85 @@
+/*
+Adafruit Arduino - Lesson 6. Inputs
+*/
+
+
+int ledPin = 5; //the led wire is in pin 5 on the arduino
+int buttonON = 9; //the wire for the on button is connected to pin 9 on the arduino
+int buttonOFF = 8; //the wire for the off button is connected to pin 8 on the arduino
+int buttonMUSIC = 10; //the wire for the button that will begin the music is connected to pin 10 on the arduino
+int speakerPin = 2; //the wire for the buzzer is connected to pin 2
+
+int numTones = 2; //2 total tones played
+int numTones2 = 5; //5 total tones played 
+
+int toneUP[]= {2000, 2200}; //tone frequencies
+int toneDOWN[] = {2200, 2000}; //tone frequencies
+int toneMUSIC[] = {1500, 1700, 1900, 2100, 2300}; //tone frequencies
+
+bool x; //boolean labelled as x
+bool y; //boolean labelled as y
+
+byte leds = 0; //
+ 
+void setup() 
+{
+  pinMode(ledPin, OUTPUT); // the led is the output
+  pinMode(buttonON, INPUT_PULLUP); // the first button to turn on the circuit is the input
+  pinMode(buttonOFF, INPUT_PULLUP); // the next button to turn off the circuit is another input
+  pinMode(buttonMUSIC, INPUT_PULLUP); // the last button to play a scale is another input
+  x = false; //boolean set up as false 
+  y = false;  //boolean set up as false 
+}
+ 
+void loop() 
+{
+  if ((digitalRead(buttonON) == LOW) &&  (x == false)) // if the button is off on pin number 9         
+  {for (int i = 0; i < numTones; i++) // plays 1 through 2: plays 1 and adds a value (1) to play 2
+  {
+    tone(speakerPin, toneUP[i]); //plays the two tones from ToneUP [2000,2200]
+    delay(200); // causes a 200 milisecond delay
+  }
+    noTone(speakerPin);  //stops playing the tones
+  
+{
+  delay(200); // another 200 milisecond delay
+  digitalWrite(ledPin, HIGH); // turns the led on
+  x = true; // sets Boolean x to true
+  y = true; // sets Boolean y to true
+}
+    
+    if ((digitalRead(buttonMUSIC) == LOW) && (x == true) && (y == true))//if buttonMUSIC hasn't been pushed and the led is on
+
+{for (int a = 0; a < numTones2; a++) //plays tones 1 through 5 in numtones2: plays 1 and adds a value (1) to play tone 2, 3, 4, then 5
+  {
+    tone(speakerPin, toneMUSIC[a]); //plays the tones outloud on the speaker
+    delay(200); //200 milisecond delay 
+  }
+
+  {
+    delay(200); //200 milisecond delay
+    digitalWrite(ledPin, HIGH); //led stays on
+    y = false; // boolean y becomes false
+}
+   
+}
+  
+  if ((digitalRead(buttonOFF) == LOW) &&  (x == true)) // if buttonOff hasn't been pushed and Boolean x = true
+
+ {for (int e = 0; e < numTones; e++) // plays tones 1 through 2: plays 1 tone and adds a value (1) to play the second tone
+  {
+    tone(speakerPin, toneDOWN[e]); //play the two toneDOWN tones outloud
+    delay(200); //200 milisecond delay
+  }
+  noTone(speakerPin); //stops playing sounds
+
+
+   {
+     delay(200); //200 second delay
+    digitalWrite(ledPin, LOW); //turns the led off
+     x = false; //sets Boolean x to off
+     y = true; //boolean y becomes true
+   }
+}
+
+}
