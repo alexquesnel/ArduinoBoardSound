@@ -1,0 +1,45 @@
+int led = 13;
+int board = 7;
+bool x;
+
+
+ 
+// the setup routine runs once when you press reset:
+void setup() {                
+  // initialize the digital pin as an output.
+  pinMode(led, OUTPUT);
+  pinMode(board, OUTPUT); 
+  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(board, HIGH);    
+  x = true;
+}
+ 
+// the loop routine runs over and over again forever:
+void loop() 
+{
+{ if ((x == false) && (digitalRead(led == HIGH)));
+
+  {
+    digitalWrite(led, LOW);
+    x = true; 
+  }
+
+{if ((x == true) && (digitalRead(led == LOW)));
+
+  {
+    digitalWrite(led, LOW);
+    x = false; 
+  }
+}
+}
+
+{ if (digitalRead(board) == HIGH)
+  {
+    digitalWrite(led, HIGH);
+  }
+  if (digitalRead(board) == LOW)
+  {
+    digitalWrite(led, LOW);
+  }
+}
+}
