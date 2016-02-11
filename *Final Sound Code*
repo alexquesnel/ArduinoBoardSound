@@ -47,6 +47,7 @@ void loop()
   x = true; // sets Boolean x to true
   y = true; // sets Boolean y to true
 }
+  }
     
     if ((digitalRead(buttonMUSIC) == LOW) && (x == true) && (y == true))//if buttonMUSIC hasn't been pushed and the led is on
 
